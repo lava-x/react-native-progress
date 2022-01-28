@@ -153,16 +153,9 @@ export default class ProgressBar extends Component {
         {
           translateX: this.state.progress.interpolate({
             inputRange: [0, 1],
-            outputRange: [innerWidth / (I18nManager.isRTL ? 2 : -2), 0],
+            outputRange: [innerWidth * (I18nManager.isRTL ? 1 : -1), 0],
           }),
-        },
-        {
-          // Interpolation a temp workaround for https://github.com/facebook/react-native/issues/6278
-          scaleX: this.state.progress.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0.0001, 1],
-          }),
-        },
+         },  
       ],
     };
 
